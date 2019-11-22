@@ -10,3 +10,11 @@
     height: 10vh;
 }
 
+.modButton {
+    position:relative;
+    width: 97.2vw;
+    height: 10vh;
+    top: 10vh;
+    right: 10.8vw;
+}
+

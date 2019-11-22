@@ -1,18 +1,19 @@
 const hexArray  =[0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
-const hexArray2 =[9,8,7,6,5,4,3,2,1,0,'F','E','D','C','B','A'];
+const hexArray2 =['F','E','D','C','B','A',9,8,7,6,5,4,3,2,1,0];
 const borderStyles=['dotted','dashed', 'double','groove','ridge','inset','outset'];
 const WidthArray = [10,14,18,22,26,30,34,38,42,46,50,54];
 
-const wrapper   = document.querySelector('.wrapper')
-const button    = document.querySelector('.button');
-const one       = document.querySelector('.one');
-const two       = document.querySelector('.two');
-const three     = document.querySelector('.three');
-const four      = document.querySelector('.four');
-const five      = document.querySelector('.five');
-const six       = document.querySelector('.six');
-const seven     = document.querySelector('.seven');
-const eight     = document.querySelector('.eight');
+const wrapper    = document.querySelector('.wrapper')
+const button     = document.querySelector('.button');
+const modButton  = document.querySelector('.modButton')
+const one        = document.querySelector('.one');
+const two        = document.querySelector('.two');
+const three      = document.querySelector('.three');
+const four       = document.querySelector('.four');
+const five       = document.querySelector('.five');
+const six        = document.querySelector('.six');
+const seven      = document.querySelector('.seven');
+const eight      = document.querySelector('.eight');
 
 const  nine      = document.querySelector('.nine');         
 const  ten       = document.querySelector('.ten');      
@@ -23,19 +24,13 @@ const  fourteen  = document.querySelector('.fourteen');
 const  fifteen   = document.querySelector('.fifteen');
 const  sixteen   = document.querySelector('.sixteen');
 const  seventeen = document.querySelector('.seventeen');
-const  eighteen = document.querySelector('.eighteen');
+const  eighteen  = document.querySelector('.eighteen');
+
+let randomModifier = 0;
 
 button.addEventListener('click', start);
-button.addEventListener('click', buttonColor)
-
-function wait(ms){
-    var d = new Date();
-    var d2 = null;
-    do { 
-        d2 = new Date(); 
-    }
-    while(d2-d < ms);
-    }
+button.addEventListener('click', buttonColor);
+modButton.addEventListener('click', mod);
 
 function buttonColor() {
     
@@ -47,6 +42,11 @@ function buttonColor() {
 function resetButton(){
     button.style.backgroundColor = 'white';
 
+}
+
+function mod() {
+    randomModifier = Math.floor(Math.random()*borderStyles.length);
+    console.log(randomModifier);
 }
 
 function start(){
@@ -117,47 +117,47 @@ function start(){
 
         two.style.backgroundColor = hexTwo;
         two.style.borderColor     = hexOne;
-        two.style.borderStyle     = borderStyles[randomStyle];
+        two.style.borderStyle     = borderStyles[randomStyle + randomModifier];
         two.style.borderWidth     = width;
 
         four.style.backgroundColor  = hexTwo;
         four.style.borderColor      = hexOne;
-        four.style.borderStyle      = borderStyles[randomStyle];
+        four.style.borderStyle      = borderStyles[randomStyle + randomModifier];
         four.style.borderWidth      = width;
 
         six.style.backgroundColor = hexTwo;
         six.style.borderColor     = hexOne;
-        six.style.borderStyle     = borderStyles[randomStyle];
+        six.style.borderStyle     = borderStyles[randomStyle + randomModifier];
         six.style.borderWidth     = width;
 
         eight.style.backgroundColor  = hexTwo;
         eight.style.borderColor      = hexOne;
-        eight.style.borderStyle      = borderStyles[randomStyle];
+        eight.style.borderStyle      = borderStyles[randomStyle + randomModifier];
         eight.style.borderWidth      = width;
 
         ten.style.backgroundColor  = hexTwo;
         ten.style.borderColor      = hexOne;
-        ten.style.borderStyle      = borderStyles[randomStyle];
+        ten.style.borderStyle      = borderStyles[randomStyle + randomModifier];
         ten.style.borderWidth      = width;
 
         twelve.style.backgroundColor  = hexTwo;
         twelve.style.borderColor      = hexOne;
-        twelve.style.borderStyle      = borderStyles[randomStyle];
+        twelve.style.borderStyle      = borderStyles[randomStyle + randomModifier];
         twelve.style.borderWidth      = width;
 
         fourteen.style.backgroundColor  = hexTwo;
         fourteen.style.borderColor      = hexOne;
-        fourteen.style.borderStyle      = borderStyles[randomStyle];
+        fourteen.style.borderStyle      = borderStyles[randomStyle + randomModifier];
         fourteen.style.borderWidth      = width;
 
         sixteen.style.backgroundColor  = hexTwo;
         sixteen.style.borderColor      = hexOne;
-        sixteen.style.borderStyle      = borderStyles[randomStyle];
+        sixteen.style.borderStyle      = borderStyles[randomStyle + randomModifier];
         sixteen.style.borderWidth      = width;
 
         eighteen.style.backgroundColor  = hexTwo;
         eighteen.style.borderColor      = hexOne;
-        eighteen.style.borderStyle      = borderStyles[randomStyle];
+        eighteen.style.borderStyle      = borderStyles[randomStyle + randomModifier];
         eighteen.style.borderWidth      = width;
 
 
@@ -165,9 +165,18 @@ function start(){
         console.log(hexTwo);
         console.log(borderStyles[randomStyle]); 
 
-        setTimeout(start,150);
+        setTimeout(start,1000);
         
     }
+
+    //function wait(ms){
+//    var d = new Date();
+//    var d2 = null;
+//    do { 
+//        d2 = new Date(); 
+//    }
+//    while(d2-d < ms);
+//    }
 
         
 
