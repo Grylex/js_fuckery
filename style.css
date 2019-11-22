@@ -1,0 +1,12 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(9, 10.8vw);
+    grid-auto-rows: 45vh;
+    border: none;
+}
+
+.button{
+    width: 97.2vw;
+    height: 10vh;
+}
+
