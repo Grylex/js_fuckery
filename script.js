@@ -161,9 +161,9 @@ function start(){
         eighteen.style.borderWidth      = width;
 
 
-        console.log(hexOne);
-        console.log(hexTwo);
-        console.log(borderStyles[randomStyle]); 
+        //console.log(hexOne);
+       // console.log(hexTwo);
+        //console.log(borderStyles[randomStyle]); 
 
         setTimeout(start,1000);
         
