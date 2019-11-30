@@ -1,7 +1,8 @@
-const hexArray  =[0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
-const hexArray2 =['F','E','D','C','B','A',9,8,7,6,5,4,3,2,1,0];
+const hexArrayOne  =[0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+const hexArrayTwo =['F','E','D','C','B','A',9,8,7,6,5,4,3,2,1,0];
 const borderStyles=['dotted','dashed', 'double','groove','ridge','inset','outset'];
 const WidthArray = [10,14,18,22,26,30,34,38,42,46,50,54];
+
 
 const wrapper    = document.querySelector('.wrapper')
 const button     = document.querySelector('.button');
@@ -26,11 +27,22 @@ const  sixteen   = document.querySelector('.sixteen');
 const  seventeen = document.querySelector('.seventeen');
 const  eighteen  = document.querySelector('.eighteen');
 
+const  rangeSlider  = document.querySelector('.rangeSlider');
+let speed = 1000;
+
+
 let randomModifier = 0;
+
+
 
 button.addEventListener('click', start);
 button.addEventListener('click', buttonColor);
 modButton.addEventListener('click', mod);
+
+rangeSlider.onchange = function () {
+     speed = rangeSlider.value;
+
+}
 
 function buttonColor() {
     
@@ -46,7 +58,10 @@ function resetButton(){
 
 function mod() {
     randomModifier = Math.floor(Math.random()*borderStyles.length);
-    console.log(randomModifier);
+    if((randomModifier + randomStyle) >borderStyles.length) {
+       
+    }
+    //console.log(randomModifier);
 }
 
 function start(){
@@ -55,18 +70,18 @@ function start(){
     let randomStyle= Math.floor(Math.random()*borderStyles.length);
     let randomWidth= Math.floor(Math.random()*WidthArray.length);
     let width = WidthArray[randomWidth] + 'px';
-    console.log(width);
+    //console.log('border width-- ' + width + 'px');
 
     
 
         for(let i = 0; i < 6; i++){
-            let random = Math.floor(Math.random()*hexArray.length);
+            let random = Math.floor(Math.random()*hexArrayOne.length);
 
-            hexOne += hexArray[random];
-            hexTwo += hexArray2[random];
+            hexOne += hexArrayOne[random];
+            hexTwo += hexArrayTwo[random];
 
         }
-
+//change all of the styles after the calculations are done
         one.style.backgroundColor   = hexOne;
         one.style.borderColor       = hexTwo;
         one.style.borderStyle       = borderStyles[randomStyle];
@@ -163,9 +178,10 @@ function start(){
 
         //console.log(hexOne);
        // console.log(hexTwo);
-        //console.log(borderStyles[randomStyle]); 
+       //console.log(randomStyle);
+        //console.log(randomStyle + randomModifier + 'mod'); 
 
-        setTimeout(start,1000);
+        setTimeout(start,speed);
         
     }
 
